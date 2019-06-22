@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { HttpService } from "../http.service";
 
 @Component({
   selector: "app-weather",
@@ -6,7 +7,21 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./weather.component.css"]
 })
 export class WeatherComponent implements OnInit {
-  constructor() {}
+  weathers;
+  city;
+  constructor(private httpService: HttpService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this.httpService.getWeathers().subscribe(resp => {
+    //   console.log(resp);
+    //   this.weathers = resp["list"];
+    // });
+  }
+
+  btnPressed() {
+    this.httpService.getWeathers(this.city).subscribe(resp => {
+      console.log(resp);
+      this.weathers = resp["list"];
+    });
+  }
 }

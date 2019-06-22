@@ -4,8 +4,10 @@
       class="form-control form-control-lg"
       type="text"
       placeholder="Enter a city"
+      name="city"
+      [(ngModel)]="city"
     />
-    <button class="btn btn-primary">Get Now</button>
+    <button class="btn btn-primary" (click)="btnPressed()">Get Now</button>
 
     <table class="table table-bordered table-striped">
       <tr>
@@ -14,16 +16,10 @@
         <th>Temperature</th>
       </tr>
 
-      <tr>
-        <th>20/7</th>
-        <th>Hot</th>
-        <th>27</th>
-      </tr>
-
-      <tr>
-        <th>20/7</th>
-        <th>Hot</th>
-        <th>27</th>
+      <tr *ngFor="let weather of weathers">
+        <th>{{ weather.dt }}</th>
+        <th>{{ weather.weather[0].main }}</th>
+        <th>{{ weather.temp.day }}</th>
       </tr>
     </table>
   </div>

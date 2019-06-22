@@ -10,9 +10,11 @@ export class HttpService {
   constructor(public httpClient: HttpClient) {}
 
   //3- implement
-  getWeather() {
+  getWeathers(city) {
     return this.httpClient.get(
-      "http://api.openweathermap.org/data/2.5/forecast/daily?q=Kuala%20Lumpur&cnt=10&appId=9fd7a449d055dba26a982a3220f32aa2"
+      "http://api.openweathermap.org/data/2.5/forecast/daily?q=" +
+        city +
+        "&cnt=10&appId=9fd7a449d055dba26a982a3220f32aa2"
     );
   }
 }
