@@ -9,6 +9,7 @@ import { HttpService } from "../http.service";
 export class WeatherComponent implements OnInit {
   weathers;
   city;
+  selectedWeather;
   constructor(private httpService: HttpService) {}
 
   ngOnInit() {
@@ -23,5 +24,9 @@ export class WeatherComponent implements OnInit {
       console.log(resp);
       this.weathers = resp["list"];
     });
+  }
+
+  weatherPressed(weather) {
+    this.selectedWeather = weather;
   }
 }

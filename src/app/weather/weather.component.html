@@ -16,11 +16,14 @@
         <th>Temperature</th>
       </tr>
 
-      <tr *ngFor="let weather of weathers">
-        <th>{{ weather.dt }}</th>
+      <tr *ngFor="let weather of weathers" (click)="weatherPressed(weather)">
+        <th>{{ weather.dt | date }}</th>
         <th>{{ weather.weather[0].main }}</th>
-        <th>{{ weather.temp.day }}</th>
+        <th>{{ weather.temp.day - 273.15 | number: "0.2-2" }}&deg; C</th>
       </tr>
     </table>
   </div>
 </section>
+<div *ngIf="selectedWeather">
+  {{ selectedWeather.dt }}
+</div>

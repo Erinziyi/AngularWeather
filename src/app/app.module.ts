@@ -6,9 +6,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { WeatherComponent } from "./weather/weather.component";
 import { HttpService } from "./http.service";
+import { WeatherDetailComponent } from "./weather-detail/weather-detail.component";
 
 @NgModule({
-  declarations: [AppComponent, WeatherComponent],
+  declarations: [AppComponent, WeatherComponent, WeatherDetailComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [HttpService],
   bootstrap: [AppComponent]
